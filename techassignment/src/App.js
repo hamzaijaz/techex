@@ -9,9 +9,17 @@ import NotFoundPage from "./pages/NoFound";
 import AddEvent from "./pages/AddEvent";
 import ViewEvents from "./pages/ViewEvents";
 import Footer from "./Components/Footer";
-import axios from "axios";
+import authorisedClient from "../src/common/authorised-axios";
 
 function App() {
+  async function getEvent() {
+    const response = await authorisedClient.get(
+      `getevent/94afe0a5-5f18-4ee8-8b99-cebff51c05a3`
+    );
+  }
+
+  getEvent();
+
   return (
     <div>
       <NavBar />

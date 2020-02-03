@@ -1,7 +1,20 @@
 import React from "react";
 import ".././bootstrap.min.css";
+import authorisedAxios from "../common/authorised-axios";
+import authorisedClient from "../common/authorised-axios";
 
 function AddEvent() {
+  const onAddEventSubmit = async values => {
+    var response;
+    response = await authorisedClient.post("createevent", {
+      EventTitle: values.eventName,
+      EventDescription: values.eventName,
+      EventType: values.eventType,
+      EventDate: values.eventDate,
+      EventCost: values.events
+    });
+  };
+
   return (
     <div className="container-fluid myheader">
       <div className="row">
@@ -12,9 +25,9 @@ function AddEvent() {
       </div>
 
       <div className="mydiv">
-        <form>
+        <form onSubmit={onAddEventSubmit}>
           <div className="form-group">
-            <label for="eventName">Event Name</label>
+            <label>Event Name</label>
             <input
               type="text"
               className="form-control"
@@ -24,7 +37,7 @@ function AddEvent() {
           </div>
 
           <div className="form-group">
-            <label for="date">Event Date:</label>{" "}
+            <label>Event Date:</label>{" "}
             <input
               type="date"
               id="eventDate"
@@ -35,7 +48,7 @@ function AddEvent() {
           </div>
 
           <div className="form-group">
-            <label for="eventLocation">Location</label>
+            <label>Location</label>
             <input
               type="text"
               className="form-control"
@@ -45,8 +58,8 @@ function AddEvent() {
           </div>
 
           <div className="form-group">
-            <label for="eventType">Event Type: </label>{" "}
-            <select name="events">
+            <label>Event Type: </label>{" "}
+            <select name="events" id="events">
               <option value="choose">Choose</option>
               <option value="lunch">Lunch</option>
               <option value="training">Training</option>
@@ -62,9 +75,7 @@ function AddEvent() {
               className="form-check-input"
               id="exampleCheck1"
             />
-            <label className="form-check-label" for="exampleCheck1">
-              Confirm event
-            </label>
+            <label className="form-check-label">Confirm event</label>
           </div>
 
           <div className="form-group">

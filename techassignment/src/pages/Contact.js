@@ -11,6 +11,13 @@ function Contact() {
           <p>Our contact details are as follows</p>
         </div>
       </div>
+
+      <div className="row">
+        <div className="jumbotron col-10 offset-1">
+          <h1>Address</h1>
+          <p>Johnston Street, Abbotsford</p>
+        </div>
+      </div>
     </div>
   );
 }
