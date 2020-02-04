@@ -1,18 +1,19 @@
 import React from "react";
 import ".././bootstrap.min.css";
-import authorisedAxios from "../common/authorised-axios";
 import authorisedClient from "../common/authorised-axios";
 
 function AddEvent() {
   const onAddEventSubmit = async values => {
-    var response;
-    response = await authorisedClient.post("createevent", {
-      EventTitle: values.eventName,
-      EventDescription: values.eventName,
-      EventType: values.eventType,
-      EventDate: values.eventDate,
-      EventCost: values.events
-    });
+    async function submitt(values) {
+      var response = await authorisedClient.post("createevent", {
+        EventTitle: values.target.elements.eventName.value,
+        EventDescription: values.target.elements.eventName.value,
+        EventType: values.target.elements.events.value,
+        EventDate: "2020-05-01 00:00:00.000Z", //values.target.elements.eventDate.value,
+        EventCost: values.target.elements.cost.value
+      });
+    }
+    submitt(values);
   };
 
   return (
@@ -39,7 +40,7 @@ function AddEvent() {
           <div className="form-group">
             <label>Event Date:</label>{" "}
             <input
-              type="date"
+              type="datetime-local"
               id="eventDate"
               name="eventDate"
               min="2018-01-01"
@@ -79,8 +80,8 @@ function AddEvent() {
           </div>
 
           <div className="form-group">
-            <label for="cost">Cost (if any):</label>{" "}
-            <input type="number" min="0.00" step="5" max="2500" />
+            <label>Cost (if any):</label>{" "}
+            <input id="cost" type="number" min="0.00" step="5" max="2500" />
           </div>
 
           <button type="submit" className="btn btn-primary">
