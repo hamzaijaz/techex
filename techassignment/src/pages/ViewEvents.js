@@ -9,7 +9,7 @@ export const ViewEvents = () => {
     async function getEvents() {
       let response = await authorisedClient.get(`getallevents`);
       setRes(response);
-      // console.log(response);
+      //console.log(response);
     }
     getEvents();
   }, []);
@@ -25,10 +25,15 @@ export const ViewEvents = () => {
       {res.data && (
         <ul className="nobullets">
           {res.data.map(item => (
-            <li>
+            <li key={item.eventIdentity} style={{ cursor: "pointer" }}>
               <Event
                 title={item.eventTitle}
                 description={item.eventDescription}
+                eventIdentity={item.eventIdentity}
+                eventType={item.eventType}
+                eventDate={item.eventDate}
+                eventCost={item.eventCost}
+                rsvp={item.rsvp}
               ></Event>
             </li>
           ))}
