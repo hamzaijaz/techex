@@ -5,7 +5,7 @@ import authorisedClient from "../common/authorised-axios";
 function AddEvent() {
   const onAddEventSubmit = async values => {
     async function submitt(values) {
-      var response = await authorisedClient.post("createevent", {
+      await authorisedClient.post("createevent", {
         EventTitle: values.target.elements.eventName.value,
         EventDescription: values.target.elements.eventName.value,
         EventType: values.target.elements.events.value,

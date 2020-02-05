@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "cors": "^2.8.5",
     "google-map-react": "^1.1.5",
     "react": "^16.10.1",
     "react-bootstrap": "^1.0.0-beta.16",
@@ -33,5 +34,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:7071"
+  "proxy": "http://localhost:7071/api"
 }

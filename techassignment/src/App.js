@@ -9,6 +9,7 @@ import NotFoundPage from "./pages/NoFound";
 import AddEvent from "./pages/AddEvent";
 import ViewEvents from "./pages/ViewEvents";
 import Footer from "./Components/Footer";
+import Admin from "./pages/Admin";
 import authorisedClient from "../src/common/authorised-axios";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/contact" component={Contact} />
         <Route path="/addevent" component={AddEvent} />
         <Route path="/viewevents" component={ViewEvents} />
+        <Route path="/admin" component={Admin} />
         <Route component={NotFoundPage} />
       </Switch>
       <Footer />
