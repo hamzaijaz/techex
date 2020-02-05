@@ -49,9 +49,10 @@ export const Event = ({
       <div className="event">
         <div onClick={handleShow}>
           <h1>{title}</h1>
-
-          <span>{description}</span>
-          <span className="ml-2">People Coming: {rsvp}</span>
+          <div className="row">
+            <span className="col-7">{description}</span>
+            <span className="col-7 offset-9">People Coming: {rsvp}</span>
+          </div>
         </div>
         <div>
           {isAdmin && (

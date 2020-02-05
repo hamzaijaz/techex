@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import ".././bootstrap.min.css";
 import authorisedClient from "../common/authorised-axios";
 
 function AddEvent() {
+  const [submitted, setSubmitted] = useState(false);
+
   const onAddEventSubmit = async values => {
     async function submitt(values) {
-      await authorisedClient.post("createevent", {
+      var response = await authorisedClient.post("createevent", {
         EventTitle: values.target.elements.eventName.value,
         EventDescription: values.target.elements.eventDescription.value,
         EventType: values.target.elements.events.value,
         EventDate: values.target.elements.eventDate.value,
         EventCost: values.target.elements.cost.value
       });
+
+      if (response.status === 200) {
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(true);
+        }, 5000);
+      }
     }
     submitt(values);
   };
@@ -34,6 +43,7 @@ function AddEvent() {
               className="form-control"
               id="eventName"
               placeholder="e.g. Footy Lunch"
+              required
             />
           </div>
 
@@ -44,17 +54,20 @@ function AddEvent() {
               className="form-control"
               id="eventDescription"
               placeholder="e.g. Describe the event"
+              required
             />
           </div>
 
           <div className="form-group">
-            <label>Event Date:</label>{" "}
+            <label>Event Date </label>{" "}
             <input
+              className="form-control"
               type="datetime-local"
               id="eventDate"
               name="eventDate"
-              min="2018-01-01"
-              max="2025-12-31"
+              min="1753-06-01T08:30"
+              max="9999-06-30T16:30"
+              required
             />
           </div>
 
@@ -65,12 +78,13 @@ function AddEvent() {
               className="form-control"
               id="eventLocation"
               placeholder="e.g. Town Hall"
+              required
             />
           </div>
 
           <div className="form-group">
             <label>Event Type: </label>{" "}
-            <select name="events" id="events">
+            <select name="events" id="events" required>
               <option value="choose">Choose</option>
               <option value="lunch">Lunch</option>
               <option value="training">Training</option>
@@ -91,12 +105,13 @@ function AddEvent() {
 
           <div className="form-group">
             <label>Cost (if any):</label>{" "}
-            <input id="cost" type="number" min="0.00" step="5" max="2500" />
+            <input id="cost" type="number" min="0.00" max="2500" required />
           </div>
 
           <button type="submit" className="btn btn-primary">
             Create Event
           </button>
+          {submitted && <span className="ml-2">submitted!</span>}
         </form>
       </div>
     </div>
