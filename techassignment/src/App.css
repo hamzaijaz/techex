@@ -59,7 +59,7 @@
 
 /* Style the current/active link */
 .navbar a.active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
 }
 
 /* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
@@ -68,16 +68,17 @@
     float: none;
     display: block;
     width: 100%;
-    text-align: left; 
+    text-align: left;
   }
 }
 
 .mydiv {
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding-left: 20px;
+  padding: 20px;
+  /* padding-left: 20px;
   padding-right: 900px;
-  padding-top: 20px;
+  padding-top: 20px; */
   padding-bottom: 20px;
   margin-left: 112px;
   margin-right: 112px;
@@ -87,10 +88,8 @@
 .event {
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding-left: 20px;
-  padding-right: 900px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 30px;
+
   margin-left: 112px;
   margin-right: 112px;
   background-color: bisque;
@@ -99,12 +98,12 @@
 
 .nobullets {
   list-style-type: none;
+  padding: 0%;
 }
 
-li{
+li {
   margin: 10px 0;
 }
-
 
 .myheader {
   background-color: crimson;
@@ -123,6 +122,6 @@ div {
   width: 100%;
   background-color: crimson;
   color: white;
-  text-align: right;
+  text-align: center;
   border: solid 2px orange;
 }

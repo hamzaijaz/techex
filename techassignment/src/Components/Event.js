@@ -22,12 +22,14 @@ export const Event = ({
 
   const deleteClicked = () => {
     async function deleteEvent() {
-      let response = await authorisedClient.post(
-        `deleteevent/${eventIdentity}`
-      );
+      await authorisedClient.post(`deleteevent/${eventIdentity}`);
     }
-    deleteEvent();
-    window.location.reload(false);
+    // <Dialog>Are you sure?</Dialog>;
+    const r = window.confirm("Do you really want to delete this event?");
+    if (r === true) {
+      deleteEvent();
+      window.location.reload(false);
+    }
   };
 
   return (
@@ -44,12 +46,20 @@ export const Event = ({
         eventCost={eventCost}
       />
 
-      <div className="event" onClick={handleShow}>
-        <div>
+      <div className="event">
+        <div onClick={handleShow}>
           <h1>{title}</h1>
-          <p>{description}</p>
+
+          <span>{description}</span>
+          <span className="ml-2">People Coming: {rsvp}</span>
         </div>
-        <div>{isAdmin && <Button onClick={deleteClicked}>Delete</Button>}</div>
+        <div>
+          {isAdmin && (
+            <Button className="mt-2" onClick={deleteClicked}>
+              Delete
+            </Button>
+          )}
+        </div>
       </div>
     </>
   );

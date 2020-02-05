@@ -34,16 +34,23 @@ export const EventModal = ({
     >
       <Modal.Header>
         <div className="flex flex-justify flex-fill">
-          <h1 style={{ "text-align": "center" }}>{title}</h1>
+          <h1 className="text-center">{title}</h1>
           <p>Description: {description}</p>
           <p>RSVPs: {rsvp}</p>
           <p>Type: {eventType}</p>
           <p>Date: {eventDate}</p>
           <p>Cost: ${eventCost}</p>
-          <Button variant="secondary" onClick={doRsvp}>
+
+          <Button
+            className="event-modal-button"
+            variant="secondary"
+            onClick={doRsvp}
+          >
             RSVP
           </Button>
+
           <Button
+            className="event-modal-button"
             type="button"
             variant="secondary"
             className="mb-sm-0 mb-3 btn btn-secondary"

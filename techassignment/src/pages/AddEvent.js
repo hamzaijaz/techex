@@ -7,9 +7,9 @@ function AddEvent() {
     async function submitt(values) {
       await authorisedClient.post("createevent", {
         EventTitle: values.target.elements.eventName.value,
-        EventDescription: values.target.elements.eventName.value,
+        EventDescription: values.target.elements.eventDescription.value,
         EventType: values.target.elements.events.value,
-        EventDate: "2020-05-01 00:00:00.000Z", //values.target.elements.eventDate.value,
+        EventDate: values.target.elements.eventDate.value,
         EventCost: values.target.elements.cost.value
       });
     }
@@ -34,6 +34,16 @@ function AddEvent() {
               className="form-control"
               id="eventName"
               placeholder="e.g. Footy Lunch"
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Description</label>
+            <input
+              type="text"
+              className="form-control"
+              id="eventDescription"
+              placeholder="e.g. Describe the event"
             />
           </div>
 
