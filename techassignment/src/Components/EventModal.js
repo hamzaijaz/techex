@@ -18,7 +18,9 @@ export const EventModal = ({
 
   const doRsvp = () => {
     async function Rsvp() {
-      await authorisedClient.post(`rsvp/${eventIdentity}`);
+      await authorisedClient.post(
+        `rsvp/${eventIdentity}?code=hnChhxjHX89V4OvaTvJLzwlZ9z58dWJpZjBjvUUQ1ucUFhjXcoTkQQ==`
+      );
     }
     Rsvp();
     //setRsvpClicked(true);

@@ -22,7 +22,9 @@ export const Event = ({
 
   const deleteClicked = () => {
     async function deleteEvent() {
-      await authorisedClient.post(`deleteevent/${eventIdentity}`);
+      await authorisedClient.post(
+        `deleteevent/${eventIdentity}?code=hnChhxjHX89V4OvaTvJLzwlZ9z58dWJpZjBjvUUQ1ucUFhjXcoTkQQ==`
+      );
     }
     // <Dialog>Are you sure?</Dialog>;
     const r = window.confirm("Do you really want to delete this event?");

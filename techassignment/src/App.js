@@ -15,7 +15,7 @@ import authorisedClient from "../src/common/authorised-axios";
 function App() {
   async function getEvent() {
     const response = await authorisedClient.get(
-      `getevent/94afe0a5-5f18-4ee8-8b99-cebff51c05a3`
+      `getevent/94afe0a5-5f18-4ee8-8b99-cebff51c05a3?code=hnChhxjHX89V4OvaTvJLzwlZ9z58dWJpZjBjvUUQ1ucUFhjXcoTkQQ==`
     );
   }
 

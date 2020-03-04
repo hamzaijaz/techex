@@ -7,7 +7,9 @@ export const Admin = () => {
 
   useEffect(() => {
     async function getEvents() {
-      let response = await authorisedClient.get(`getallevents`);
+      let response = await authorisedClient.get(
+        `getallevents?code=hnChhxjHX89V4OvaTvJLzwlZ9z58dWJpZjBjvUUQ1ucUFhjXcoTkQQ==`
+      );
       setRes(response);
       //console.log(response);
     }
