@@ -20,7 +20,7 @@ export const Event = ({
   };
   const handleShow = () => setShow(true);
 
-  const deleteClicked = () => {
+  const deleteClicked = async () => {
     async function deleteEvent() {
       await authorisedClient.post(
         `deleteevent/${eventIdentity}?code=hnChhxjHX89V4OvaTvJLzwlZ9z58dWJpZjBjvUUQ1ucUFhjXcoTkQQ==`
@@ -29,8 +29,11 @@ export const Event = ({
     // <Dialog>Are you sure?</Dialog>;
     const r = window.confirm("Do you really want to delete this event?");
     if (r === true) {
-      deleteEvent();
-      window.location.reload(false);
+      await deleteEvent();
+
+      setTimeout(function() {
+        window.location.reload(false);
+      }, 1000);
     }
   };
 

@@ -25,7 +25,7 @@ function AddEvent() {
         }, 5000);
       }
     }
-    submitt(values);
+    await submitt(values);
   };
 
   return (
